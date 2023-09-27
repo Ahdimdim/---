@@ -229,7 +229,7 @@
         height: 400px;
         z-index: 999;
       }
-      .bg {
+      .page .bg {
         position: absolute;
         left: 0;
         top: 0;
@@ -240,13 +240,6 @@
         object-fit: cover;
         width: 100vw;
         height: 100vh;
-      }
-      section:first-child {
-        background: silver;
-      }
-
-      section:nth-child(3) {
-        background: slateblue;
       }
       /* 페이지넘버 ▼ */
       .dot {
@@ -362,7 +355,18 @@
       #about,
       #portfolio {
         position: relative;
+      }
+      #about .bg,
+      #portfolio .bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
         background: #000;
+        opacity: 0.6;
+      }
+      #about video,
+      #portfolio video {
+        position: absolute;
       }
       .content {
         position: absolute;
@@ -371,7 +375,7 @@
         background: #fff;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -45%);
         border-radius: 30px;
         display: flex;
         align-items: center;
@@ -504,26 +508,47 @@
         width: 100%;
         height: 100%;
         padding: 20px;
-        border: 1px solid #f00;
         overflow: hidden;
       }
       .slides li {
-        position: relative;
-        background: url(images/mac.png) no-repeat center bottom/50%;
         height: 100%;
         width: 100%;
       }
-      .slides img {
+      .slides .mac {
+        position: relative;
+        width: 50%;
+        object-fit: cover;
+        left: 5%;
+        top: 10%;
+      }
+      .slides .mac img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .slides .link {
         position: absolute;
-        top: 13%;
-        left: 50%;
-        width: 48%;
-        transform: translateX(-50%);
+        top: 15%;
+        left: 7.58%;
+        width: 46%;
+        height: 53%;
+        background: #000;
+        overflow: hidden;
       }
-      .slides img:hover {
-        transform: translateY(-50%);
+      .slides .link img {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .slides:first-child .link img:hover {
         transition: 2s;
+        transform: translateY(-65%);
       }
+      /* .slides:nth-child(2) .link img:hover {
+        transition: 3s;
+        transform: translateY(-79%);
+      } */
       .slides li:not(:last-child) {
         float: left;
       }
@@ -669,6 +694,9 @@
           $(".night").animate({ bottom: "-4px" }, 500, "linear");
         });
       });
+
+      //3페이지 슬라이드-----
+      
     </script>
   </head>
   <body style="overflow: hidden">
@@ -736,6 +764,8 @@
         </div>
       </section>
       <section id="about">
+        <video autoplay muted loop src="video/star.mp4"></video>
+        <div class="bg"></div>
         <div class="content">
           <div class="left">
             <div class="photo">
@@ -774,10 +804,26 @@
         </div>
       </section>
       <section id="portfolio">
+        <video autoplay muted loop src="video/star.mp4"></video>
+        <div class="bg"></div>
         <div class="content" id="slideShow">
           <ul class="slides">
-            <li><img src="images/screencapture_BR.png" alt="" /></li>
-            <li><img src="" alt="" /></li>
+            <li>
+              <div class="mac">
+                <img src="images/mac.png" alt="" />
+              </div>
+              <div class="link">
+                <img src="images/screencapture_BR.png" alt="" />
+              </div>
+            </li>
+            <!-- <li>
+              <div class="mac">
+                <img src="images/mac.png" alt="" />
+              </div>
+              <div class="link">
+                <img src="images/screencapture_larocheposay.png" alt="" />
+              </div> -->
+            </li>
           </ul>
           <p class="controller">
             <span class="prev">&lang;</span>

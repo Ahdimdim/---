@@ -110,7 +110,6 @@
         color: #fff;
         text-shadow: 2px 2px 2px gray;
       }
-
       .loading:before {
         content: attr(data-text);
         position: absolute;
@@ -120,10 +119,9 @@
         height: 100%;
         color: #66c2ff;
         overflow: hidden;
-        animation: animate 7s linear infinite;
+        animation: animate 5s linear infinite;
         border-right: 4px solid rgb(102, 194, 255);
       }
-
       @keyframes animate {
         0% {
           width: 0;
@@ -260,7 +258,7 @@
           }, 600);
           setTimeout(function () {
             $(location).attr("href", "index2.html");
-          }, 4100);
+          }, 3100);
         });
       });
     </script>
